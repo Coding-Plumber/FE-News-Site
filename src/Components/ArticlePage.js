@@ -1,16 +1,23 @@
 import "./ArticlePage.css";
 import { useParams, useLocation } from "react-router-dom";
-import { getArticleById } from "../Api/Api";
+import { getArticleById, getArticleCommentsById } from "../Api/Api";
 import React, { useEffect, useState } from "react";
+import Comment from './Comment';
 
 const ArticlePage = (props) => {
   const { id } = useParams();
   const { state } = useLocation();
+
+  
+  
+  const [articleComments, setArticleComments] = useState([]);
   const [article, setArticle] = useState(
     state?.article || props.article || null
   );
-  const [articleComments, setArticleComments] = useState([]);
   const date = article.created_at.substring(0, 10);
+
+
+  // fetches articles if none have been passed through state or props using the id from params to obtain correct article
 
   useEffect(() => {
     if (!article) {
@@ -18,6 +25,7 @@ const ArticlePage = (props) => {
         try {
           const response = await getArticleById(id);
           setArticle(response.data.articles);
+          
         } catch (error) {
           console.log(error);
         }
@@ -26,11 +34,36 @@ const ArticlePage = (props) => {
     }
   }, [id, article]);
 
-  console.log(article, "<-- article within Article Page");
+  useEffect(() => {
+    if(article) {
+        console.log('RUNNING IN GETARTICLE COMMENTS')
+        const fetchComments = async () => {
+          try {
+            console.log(id, '<-- id');
+            const response = await getArticleCommentsById(id);
+            setArticleComments(response.data.articleComments);
+            console.log(response.data.articleComments, '<-- response for articleCOmments')
+          } catch (error) {
+            console.log(error);
+          }
+        };
+        fetchComments();
+    }
+  }, [id, article]);
+
+
+
+
+
+
+
+ 
 
   if (!article) {
     return <div>Loading...</div>;
   }
+
+  
 
   return (
     <div className="article-page-main__container">
@@ -46,7 +79,14 @@ const ArticlePage = (props) => {
           <p className="article-page-body__text">{article.body}</p>
         </div>
         <div className="article-page__comments">
-            COMMENTS HERE
+            {console.log(articleComments, '<-- article Comments before article comment map')}
+            {articleComments.map((comment) => {
+                return (
+                    < Comment 
+                    key={comment.comment_id}
+                    comment= {comment} />
+                )
+            })}
         </div>
       </div>
     </div>

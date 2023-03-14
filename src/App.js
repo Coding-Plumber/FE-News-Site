@@ -21,7 +21,9 @@ function App() {
             <Route path="/article/:id" element={<ArticlePage />} />
           </Routes>
         </div>
-        <Footer />
+        <div className="footer__container">
+        <Footer className="footer"/>
+        </div>
       </div>
     </Router>
   );

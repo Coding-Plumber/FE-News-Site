@@ -3,12 +3,13 @@
   width: 100%;
   height: 30vh;
   border: 5px solid yellow;
+  background-color: lightseagreen;
 }
 
 .header-right-side__container {
   display: flex;
   flex-direction: column;
-  border: 2px green solid;
+
   flex-grow: 1;
   width: auto;
   height: 100%;
@@ -22,8 +23,7 @@
   align-self: center;
   margin-left: 3rem;
   text-align: center;
-
-  border: red 1px solid;
+  background-color: antiquewhite;
 }
 
 .header-image__container {
@@ -31,18 +31,20 @@
   border: black solid 3px;
   width: 100%;
   height: 70%;
+  background-color: blanchedalmond;
 }
 
 .header-image {
   width: 100%;
   height: 100%;
-  border: purple 3px solid;
+
 }
 
 .header-search-bar__container {
   height: 15%;
   width: 60%;
-  border: 3px solid gold;
+  background-color: #bada55;
+
   border-radius: 10px;
   margin-top: 1rem;
 }

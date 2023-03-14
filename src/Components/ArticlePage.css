@@ -24,8 +24,8 @@
 }
 
 .article-page-image__container img {
-    max-width: 100%;
-    max-height: 100%;
+
+    width: 100%;
     flex: 1;
   }
 
@@ -40,7 +40,7 @@
   .article-page-body__container {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: auto;
     height: auto;
     padding: 1em;
     background-color: yellow;
