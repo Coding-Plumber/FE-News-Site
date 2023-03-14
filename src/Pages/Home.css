@@ -1,0 +1,83 @@
+.home {
+  display: column;
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+}
+
+.home-sidebar-articles__container {
+  display: grid;
+  grid-template-columns: 30% 70%;
+
+  width: 100%;
+  height: 100%;
+}
+
+.home-articles__container {
+  width: 100%;
+  height: 100%;
+  border: red 3px solid;
+  grid-template-columns: 100%;
+}
+
+@media (max-width: 999px) {
+  .sidebar-wrapper {
+    display: none;
+  }
+
+
+
+  .home-sidebar-articles__container {
+    display: grid;
+    grid-template-columns: 100%;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  .home-articles__container {
+    width: 100%;
+    height: 100%;
+    
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+  }
+}
+
+@media (min-width: 1000px) {
+  .sidebar-wrapper {
+    display: block;
+  }
+
+  .home-sidebar-articles__container {
+    display: grid;
+    grid-template-columns: 20% 80%;
+  
+    width: 100%;
+    height: 100%;
+  }
+
+  .home-articles__container {
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    
+  
+  }
+
+  
+}
+
+/* look at adding the ellipsis on text so they have to click the article 
+
+Sort grid so it places in first slot
+
+add the other divs to container to store text etc 
+
+*/ 

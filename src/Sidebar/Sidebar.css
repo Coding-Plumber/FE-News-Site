@@ -1,0 +1,8 @@
+.sidebar-main__container {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  width: 100%;
+  height: 100%;
+  border: 3px blue solid;
+}
