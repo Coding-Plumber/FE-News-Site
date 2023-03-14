@@ -1,8 +1,18 @@
-.sidebar-main__container {
-  display: grid;
-  grid-template-columns: 1fr;
+.sidebar__container {
+  background-color: lightgray;
 
   width: 100%;
-  height: 100%;
-  border: 3px blue solid;
+  height: 100vh;
 }
+
+.sidebar-main__container {
+  border: red solid 3px;
+  height: 102vh;
+  position: fixed;
+
+  right: auto;
+  background-color: lightgray;
+  width: 25%;
+}
+
+

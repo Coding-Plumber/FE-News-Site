@@ -1,19 +1,22 @@
 import "./Home.css";
-import Header from "../Header/Header";
+import "../Sidebar/Sidebar.css";
+import { useNavigate } from "react-router-dom";
+
 import React, { useEffect, useState } from "react";
-import Sidebar from "../Sidebar/Sidebar";
+
 import ArticleCard from "../Components/ArticleCard";
 import { getArticles } from "../Api/Api";
 
-const Home = () => {
-  const [articles, setArticles] = useState([]);
 
+const Home = () => {
+
+  const [articles, setArticles] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchArticles = async () => {
       try {
         const response = await getArticles();
         setArticles(response.data.articles);
-        
       } catch (error) {
         console.log(error);
       }
@@ -22,34 +25,34 @@ const Home = () => {
     fetchArticles();
   }, [setArticles]);
 
+  const handleClick = (event) => {
+    const findArticle = articles.find(
+      (article) => article.article_id === event.article_id
+    );
+    const articleId = findArticle.article_id;
+
+    if (findArticle) {
+      navigate(`/article/${articleId}`, { state: {article: findArticle}});
+    }
+
+  };
 
   return (
-    <div className="home">
-      <Header />
-      <div className="home-sidebar-articles__container">
-        <div className="sidebar-wrapper">
-          <Sidebar />
-        </div>
-        <div className="home-articles__container">
+    <div className="home-main__container">
+      <div className="home-articles__container">
         {console.log(articles)}
-          {
-          articles.map((article) => {
-
-            return <ArticleCard key={article.id} articles={article} />
-          })}
-        </div>
+        {articles.map((article) => {
+          return (
+            <ArticleCard
+              key={article.article_id}
+              articles={article}
+              onClick={() => handleClick(article)}
+            />
+          );
+        })}
       </div>
     </div>
   );
 };
 
 export default Home;
-
-// const fetchData = async () => {
-//     try {
-//       const response = await getArticles();
-//       setArticles(response);
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   };
