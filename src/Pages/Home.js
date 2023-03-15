@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 
 import ArticleCard from "../Components/ArticleCard";
 import { getArticles } from "../Api/Api";
-
+import ArticlePage from "../Components/ArticlePage";
 
 const Home = () => {
 

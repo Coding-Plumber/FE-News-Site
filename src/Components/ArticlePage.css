@@ -1,7 +1,7 @@
 .article-page-main__container {
     height: 700px;
     width: 100%;
-    background-color: gray;
+    background-color: rgb(231, 18, 18);
     flex-direction: row;
 
     border: green 2px solid;
