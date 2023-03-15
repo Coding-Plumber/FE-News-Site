@@ -1,7 +1,7 @@
 .header__container {
   display: flex;
   width: 100%;
-  height: 30vh;
+  height: 15vh;
   border: 5px solid yellow;
   background-color: lightseagreen;
 }
@@ -16,29 +16,9 @@
   margin-left: 3rem;
 }
 
-.header-logo__container {
-  border-radius: 50%;
-  height: 50%;
-  width: 15%;
-  align-self: center;
-  margin-left: 3rem;
-  text-align: center;
-  background-color: antiquewhite;
-}
 
-.header-image__container {
-  display: flex;
-  border: black solid 3px;
-  width: 100%;
-  height: 70%;
-  background-color: blanchedalmond;
-}
 
-.header-image {
-  width: 100%;
-  height: 100%;
 
-}
 
 .header-search-bar__container {
   height: 15%;
@@ -47,4 +27,8 @@
 
   border-radius: 10px;
   margin-top: 1rem;
+}
+
+.header {
+  background-color: #bada55;
 }

@@ -6,13 +6,30 @@
 }
 
 .sidebar-main__container {
-  border: red solid 3px;
-  height: 110vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
   position: fixed;
 
   right: auto;
   background-color: lightgray;
-  width: 25%;
+  width: 15%;
 }
 
+.sidebar {
+  width: 100%;
+}
+
+
+.sidebar-logo__container {
+  border-radius: 50%;
+  height: 5rem;
+  width: 5rem;
+  align-self: center;
+  text-align: center;
+  background-color: antiquewhite;
+  margin-top: 3rem;
+}
 

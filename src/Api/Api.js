@@ -1,40 +1,36 @@
 import axios from "axios";
 
 export const getArticles = async () => {
-  try {
-    // console.log('before getting articles from server');
-    const response = await axios.get(
-      "https://nc-news-1z1d.onrender.com/api/articles"
-    );
-    // console.log(response, '<--- response after server request');
+  // console.log('before getting articles from server');
+  const response = await axios.get(
+    "https://nc-news-1z1d.onrender.com/api/articles"
+  );
+  // console.log(response, '<--- response after server request');
 
-    return response;
-  } catch (error) {
-    console.log(error);
-    // throw new Error("Error fetching articles");
-  }
+  return response;
 };
 
 export const getArticleById = async (articleId) => {
-  try {
-    const response = await axios.get(`/api/articles/${articleId}`);
-    return response;
-  } catch (error) {
-    console.log(error);
-    // throw new Error("Error fetching articles");
-  }
+  const response = await axios.get(
+    `https://nc-news-1z1d.onrender.com/api/articles/${articleId}`
+  );
+
+  return response;
 };
 
 export const getArticleCommentsById = async (articleId) => {
-  console.log(articleId, "<-- id within getArticleCOmments");
-  try {
-    const response = await axios.get(
-      `https://nc-news-1z1d.onrender.com/api/articles/${articleId}/comments`
-    );
+  const response = await axios.get(
+    `https://nc-news-1z1d.onrender.com/api/articles/${articleId}/comments`
+  );
 
-    return response;
-  } catch (error) {
-    console.log(error);
-    // throw new Error("Error fetching articles");
-  }
+  return response;
+};
+
+export const patchArticleVote = async (articleId, newVote) => {
+  const response = await axios.patch(
+    `https://nc-news-1z1d.onrender.com/api/articles/${articleId}`,
+    { vote: newVote }
+  );
+
+  return response;
 };

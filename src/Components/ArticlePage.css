@@ -1,17 +1,14 @@
 .article-page-main__container {
-    height: 700px;
+    height: 100%;
     width: 100%;
     background-color: rgb(231, 18, 18);
     flex-direction: row;
 
-    border: green 2px solid;
 
-    transition: transform 0.2s ease-in-out;
+
+
 }
 
-.article-page-main__container:hover {
-  transform: scale(1.1);
-}
 
 .article-page-image__container {
     display: flex;
@@ -19,7 +16,7 @@
     width: 100%;
     height: 600px;
 
-    border: darkorange solid 3px;
+
     object-fit: fill;
 }
 
@@ -44,7 +41,7 @@
     height: auto;
     padding: 1em;
     background-color: yellow;
-    border: darkgreen solid 2px;
+
     font-size: larger;
     
 
@@ -53,4 +50,27 @@
 
 .article-page-body__text {
 font-size: 2rem;
+}
+
+
+.vote-count-vote-icons__container {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+}
+.thumbs-voting-icons__container {
+  display: flex;
+
+}
+
+.thumbs-up-icon {
+  height: 1.3rem;
+  width: auto;
+  margin-right: 1.5rem;
+  
+}
+
+.thumbs-down-icon {
+  height: 1.3rem;
+  width: auto;
 }

@@ -1,0 +1,14 @@
+.home-main__container {
+    min-height: 100vh;
+  }
+
+
+.home-articles__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 1rem;
+    background-color: blue;
+    margin-bottom: 3rem;
+  }
+  

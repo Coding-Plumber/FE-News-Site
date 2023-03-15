@@ -1,6 +1,6 @@
 import "./Home.css";
 import "../Sidebar/Sidebar.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import React, { useEffect, useState } from "react";
 
@@ -9,7 +9,6 @@ import { getArticles } from "../Api/Api";
 import ArticlePage from "../Components/ArticlePage";
 
 const Home = () => {
-
   const [articles, setArticles] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
@@ -25,17 +24,7 @@ const Home = () => {
     fetchArticles();
   }, [setArticles]);
 
-  const handleClick = (event) => {
-    const findArticle = articles.find(
-      (article) => article.article_id === event.article_id
-    );
-    const articleId = findArticle.article_id;
 
-    if (findArticle) {
-      navigate(`/article/${articleId}`, { state: {article: findArticle}});
-    }
-
-  };
 
   return (
     <div className="home-main__container">
@@ -43,11 +32,16 @@ const Home = () => {
         {console.log(articles)}
         {articles.map((article) => {
           return (
-            <ArticleCard
+            <Link
+              to={{
+                pathname: `/article/${article.article_id}`,
+                state: { article: article },
+              }}
               key={article.article_id}
-              articles={article}
-              onClick={() => handleClick(article)}
-            />
+              className="article-link"
+            >
+              <ArticleCard key={article.article_id} articles={article} />
+            </Link>
           );
         })}
       </div>

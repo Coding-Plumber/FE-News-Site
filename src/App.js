@@ -6,29 +6,25 @@ import ArticlePage from "./Components/ArticlePage";
 import Header from "./Header/Header";
 import Sidebar from "./Sidebar/Sidebar";
 
-
 function App() {
   return (
     <Router>
       <div className="app__container">
-        <div className="sidebar__container">
+        <aside className="sidebar__container">
           <Sidebar className="sidebar" />
-        </div>
+        </aside>
         <div className="wrapper">
-          <div className="content__container">
+          <main className="content__container">
             <Header />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/article/:id" element={<ArticlePage />} />
             </Routes>
-          </div>
-
+          </main>
         </div>
       </div>
     </Router>
   );
 }
-
-
 
 export default App;

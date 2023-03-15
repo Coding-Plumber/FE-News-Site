@@ -1,69 +1,64 @@
 import "./ArticlePage.css";
-import { useParams, useLocation } from "react-router-dom";
-import { getArticleById, getArticleCommentsById } from "../Api/Api";
+import { useParams } from "react-router-dom";
+import {
+  getArticleById,
+  getArticleCommentsById,
+  patchArticleVote,
+} from "../Api/Api";
 import React, { useEffect, useState } from "react";
-import Comment from './Comment';
+import Comment from "./Comment";
+import thumbsDown from "../Assets/thumbs-down-outline.svg";
+import thumbsUp from "../Assets/thumbs-up-outline.svg";
 
-const ArticlePage = (props) => {
+const ArticlePage = () => {
   const { id } = useParams();
-  const { state } = useLocation();
 
-  
-  
   const [articleComments, setArticleComments] = useState([]);
-  const [article, setArticle] = useState(
-    state?.article || props.article || null
-  );
-  const date = article.created_at.substring(0, 10);
 
+  const [article, setArticle] = useState(null);
 
   // fetches articles if none have been passed through state or props using the id from params to obtain correct article
 
-  useEffect(() => {
-    if (!article) {
-      const fetchArticles = async () => {
-        try {
-          const response = await getArticleById(id);
-          setArticle(response.data.articles);
-          
-        } catch (error) {
-          console.log(error);
-        }
-      };
-      fetchArticles();
-    }
-  }, [id, article]);
-
-  useEffect(() => {
-    if(article) {
-        console.log('RUNNING IN GETARTICLE COMMENTS')
-        const fetchComments = async () => {
+  useEffect(
+    () => {
+      if (!article) {
+        const fetchArticles = async () => {
           try {
-            console.log(id, '<-- id');
-            const response = await getArticleCommentsById(id);
-            setArticleComments(response.data.articleComments);
-            console.log(response.data.articleComments, '<-- response for articleCOmments')
+            const response = await getArticleById(id);
+            setArticle(response.data.articleById);
           } catch (error) {
             console.log(error);
           }
         };
-        fetchComments();
+        fetchArticles();
+      }
+    },
+    [id],
+    [article]
+  );
+
+  useEffect(() => {
+    if (article) {
+      const fetchComments = async () => {
+        try {
+          const response = await getArticleCommentsById(id);
+          setArticleComments(response.data.articleComments);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      fetchComments();
     }
   }, [id, article]);
-
-
-
-
-
-
-
- 
 
   if (!article) {
     return <div>Loading...</div>;
   }
 
-  
+  const handleUpVote = (event) => {
+    const value = event.target.dataset.value;
+    console.log(value);
+  };
 
   return (
     <div className="article-page-main__container">
@@ -73,20 +68,27 @@ const ArticlePage = (props) => {
       <div className="article-page-body__container">
         <div className="article-page-date-author__container">
           <div>posted by {article.author}</div>
-          <div>{date}</div>
+          <div>{article.created_at.substring(0, 10)}</div>
         </div>
         <div className="article-page-article-description__container">
           <p className="article-page-body__text">{article.body}</p>
         </div>
+        <div className="vote-count-vote-icons__container">
+          <p className="article-page-vote-counter">Votes: {article.votes}</p>
+          <div className="thumbs-voting-icons__container">
+            <img
+              className="thumbs-up-icon"
+              src={thumbsUp}
+              data-value="+1"
+              onClick={handleUpVote}
+            />
+            <img className="thumbs-down-icon" src={thumbsDown} />
+          </div>
+        </div>
         <div className="article-page__comments">
-            {console.log(articleComments, '<-- article Comments before article comment map')}
-            {articleComments.map((comment) => {
-                return (
-                    < Comment 
-                    key={comment.comment_id}
-                    comment= {comment} />
-                )
-            })}
+          {articleComments.map((comment) => {
+            return <Comment key={comment.comment_id} comment={comment} />;
+          })}
         </div>
       </div>
     </div>
