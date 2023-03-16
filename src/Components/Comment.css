@@ -1,0 +1,16 @@
+.comment__container {
+
+    border: black solid 1px;
+}
+
+.comment-date-author__container {
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: 1rem;
+}
+
+.comment-text {
+    margin-bottom: 1rem;
+}
