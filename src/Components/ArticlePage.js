@@ -17,7 +17,6 @@ const ArticlePage = ({ articles, setArticles }) => {
     setArticles
   );
 
-  console.log(articleComments, "article comments in ARticlePage");
 
   // const [votes, setVotes] = useState(0);
 
@@ -73,10 +72,7 @@ const ArticlePage = ({ articles, setArticles }) => {
             />
           </div>
         </div>
-        <CommentsContainer
-          articleComments={articleComments}
-          loading={loading}
-        />
+        <CommentsContainer id={id} />
       </div>
     </div>
   );
