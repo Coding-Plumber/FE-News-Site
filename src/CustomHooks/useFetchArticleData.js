@@ -8,6 +8,7 @@ import {
 const useFetchArticleData = (id, articles, setArticles) => {
   const [article, setArticle] = useState(null);
   const [articleComments, setArticleComments] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchAllArticles = async () => {
     try {
@@ -54,7 +55,13 @@ const useFetchArticleData = (id, articles, setArticles) => {
     }
   }, [id, article]);
 
-  return { article, articleComments };
+  useEffect(() => {
+    if (articleComments.length > 0) {
+      setLoading(false);
+    }
+  }, [articleComments]);
+
+  return { article, articleComments, loading };
 };
 
 

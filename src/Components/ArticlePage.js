@@ -1,29 +1,42 @@
 import "./ArticlePage.css";
 import { useParams } from "react-router-dom";
+import React, { useState } from "react";
 
-import Comment from "./Comment";
-import thumbsDown from "../Assets/thumbs-down-outline.svg";
-import thumbsUp from "../Assets/thumbs-up-outline.svg";
+import arrowDown from "../Assets/arrow-down.svg";
+import arrowUp from "../Assets/arrow-up.svg";
 import { randomFiveArticles } from "../utilities/utils";
 import RandomArticles from "../CustomHooks/RandomArticles";
 import useFetchArticleData from "../CustomHooks/useFetchArticleData";
+import CommentsContainer from "./CommentsContainer";
 
 const ArticlePage = ({ articles, setArticles }) => {
   const { id } = useParams();
-  const { article, articleComments } = useFetchArticleData(
+  const { article, articleComments, loading } = useFetchArticleData(
     id,
     articles,
     setArticles
   );
+
+  console.log(articleComments, "article comments in ARticlePage");
+
+  // const [votes, setVotes] = useState(0);
 
   if (!article) {
     return <div>Loading...</div>;
   }
 
   const handleUpVote = (event) => {
-    const value = event.target.dataset.value;
-    console.log(value);
+    // const value = event.target.dataset.value;
+    // setVotes(votes + parseInt(value));
+    //   console.log(votes);
+    // Update the article depending on which vote is pressed.
+    // increase or decrease by 1 and not allow more than one vote to be done
+    // Have to get the value from the button press and then send it to the database to be updated
+    // need to make it optimisticly rendered so the count will change even before
+    // the update has taken place but will be reverted if fails.
   };
+
+  // comments into parents
 
   return (
     <div className="article-page-main__container">
@@ -44,22 +57,26 @@ const ArticlePage = ({ articles, setArticles }) => {
           <p className="article-page-body__text">{article.body}</p>
         </div>
         <div className="vote-count-vote-icons__container">
-          <p className="article-page-vote-counter">Votes: {article.votes}</p>
-          <div className="thumbs-voting-icons__container">
+          <p className="article-page-vote-counter">Votes: 0</p>
+          <div className="arrow-voting-icons__container">
             <img
-              className="thumbs-up-icon"
-              src={thumbsUp}
+              className="arrow-up-icon"
+              src={arrowUp}
               data-value="+1"
               onClick={handleUpVote}
             />
-            <img className="thumbs-down-icon" src={thumbsDown} />
+            <img
+              className="arrow-down-icon"
+              src={arrowDown}
+              data-value="-1"
+              onClick={handleUpVote}
+            />
           </div>
         </div>
-        <div className="article-page__comments">
-          {articleComments.map((comment) => {
-            return <Comment key={comment.comment_id} comment={comment} />;
-          })}
-        </div>
+        <CommentsContainer
+          articleComments={articleComments}
+          loading={loading}
+        />
       </div>
     </div>
   );

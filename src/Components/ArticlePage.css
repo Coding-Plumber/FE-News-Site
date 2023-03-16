@@ -97,17 +97,18 @@ a {
   flex-direction: column;
   margin: 2rem;
 }
-.thumbs-voting-icons__container {
+.arrow-voting-icons__container {
   display: flex;
 }
 
-.thumbs-up-icon {
-  height: 1.3rem;
+.arrow-up-icon {
+  height: 2rem;
   width: auto;
   margin-right: 1.5rem;
 }
 
-.thumbs-down-icon {
-  height: 1.3rem;
+.arrow-down-icon {
+  height: 2rem;
   width: auto;
+  
 }

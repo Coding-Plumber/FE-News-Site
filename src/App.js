@@ -9,7 +9,7 @@ import Sidebar from "./Sidebar/Sidebar";
 
 function App() {
   const [articles, setArticles] = useState([]);
-
+  console.log('Running');
 
   return (
     <Router>

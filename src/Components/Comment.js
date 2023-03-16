@@ -1,7 +1,9 @@
 import "./Comment.css";
 
-const Comment = ({ comment }) => {
 
+
+const Comment = ({ comment }) => {
+  console.log(comment, '<-- comment inside Comment')
   const date = comment.created_at.substring(0, 10);
   return (
     <div className="comment__container">
