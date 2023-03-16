@@ -67,7 +67,7 @@
 }
 
 .articlecard-article-description__container {
-  overflow: scroll;
+  overflow: auto;
 }
 
 .articlecard-article-description__container > * {

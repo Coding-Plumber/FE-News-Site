@@ -25,9 +25,10 @@ export const getArticleCommentsById = async (articleId) => {
 };
 
 export const patchArticleVote = async (articleId, newVote) => {
+
   const response = await axios.patch(
     `https://nc-news-1z1d.onrender.com/api/articles/${articleId}`,
-    { vote: newVote }
+    { "inc_votes" : newVote }
   );
 
   return response;
