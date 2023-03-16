@@ -1,26 +1,29 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
-
+import { useState } from 'react';
 import Home from "../src/Pages/Home";
 import ArticlePage from "./Components/ArticlePage";
 import Header from "./Header/Header";
 import Sidebar from "./Sidebar/Sidebar";
 
+
 function App() {
+  const [articles, setArticles] = useState([]);
+
+
   return (
     <Router>
       <div className="app__container">
-        <aside className="sidebar__container">
+        <div className="sidebar__container">
           <Sidebar className="sidebar" />
-        </aside>
-        <div className="wrapper">
-          <main className="content__container">
-            <Header />
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/article/:id" element={<ArticlePage />} />
-            </Routes>
-          </main>
+        </div>
+
+        <div className="content__container">
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home articles={articles} setArticles={setArticles} />} />
+            <Route path="/article/:id" element={<ArticlePage articles={articles} setArticles={setArticles}/>} />
+          </Routes>
         </div>
       </div>
     </Router>
@@ -28,3 +31,4 @@ function App() {
 }
 
 export default App;
+ 

@@ -1,6 +1,9 @@
 .comment__container {
 
-    border: black solid 1px;
+    border: white solid 1px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 1rem;
 }
 
 .comment-date-author__container {
