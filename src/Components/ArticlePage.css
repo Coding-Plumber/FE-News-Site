@@ -94,11 +94,14 @@ a {
 
 .vote-count-vote-icons__container {
   display: flex;
+
   flex-direction: column;
   margin: 2rem;
 }
+
 .arrow-voting-icons__container {
   display: flex;
+  align-self: flex-start;
 }
 
 .arrow-up-icon {
@@ -111,4 +114,10 @@ a {
   height: 2rem;
   width: auto;
   
+}
+
+.article-page-actions__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }

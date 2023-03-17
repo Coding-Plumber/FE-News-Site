@@ -1,21 +1,18 @@
 import "./ArticlePage.css";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+
 import ArticleVotes from "./Voting/ArticleVotes";
 
 import { randomFiveArticles } from "../utilities/utils";
 import RandomArticles from "../CustomHooks/RandomArticles";
 import useFetchArticleData from "../CustomHooks/useFetchArticleData";
 import CommentsContainer from "./CommentsContainer";
-import NewArticleComment from '../Components/NewArticleComment';
+import NewArticleComment from "../Components/NewArticleComment";
 
 const ArticlePage = ({ articles, setArticles }) => {
   const { id } = useParams();
-  const { article } = useFetchArticleData(
-    id,
-    articles,
-    setArticles
-  );
+  const { article } = useFetchArticleData(id, articles, setArticles);
+
 
   if (!article) {
     return <div>Loading...</div>;
@@ -40,9 +37,13 @@ const ArticlePage = ({ articles, setArticles }) => {
           <p className="article-page-body__text">{article.body}</p>
         </div>
 
-        <ArticleVotes article={article} articleId={id} />
-        <NewArticleComment />
+        <div className="article-page-actions__container">
+          <ArticleVotes article={article} articleId={id} />
+          <NewArticleComment id={id}/>
+        </div>
+
         <CommentsContainer id={id} />
+
       </div>
     </div>
   );

@@ -33,3 +33,10 @@ export const patchArticleVote = async (articleId, newVote) => {
 
   return response;
 };
+
+export const postArticleComment = async (articleId, username, body) => {
+  const response = await axios.post(`https://nc-news-1z1d.onrender.com/api/articles/${articleId}/comments`,
+  { "username": username, 
+"body" : body }
+);
+}

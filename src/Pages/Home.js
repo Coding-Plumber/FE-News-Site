@@ -22,7 +22,8 @@ const Home = ({ articles, setArticles }) => {
     fetchArticles();
   }, [setArticles]);
 
-  if (!articles) {
+  console.log(articles, 'articles in Home')
+  if (articles.length === 0) {
     return <div>Loading...</div>;
   }
 
