@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import {
   getArticleById,
-  getArticleCommentsById,
+
   getArticles,
 } from "../Api/Api";
 
@@ -30,7 +30,7 @@ const useFetchArticleData = (id, articles, setArticles) => {
     if (articles.length === 0) {
       fetchAllArticles();
     }
-  }, [articles]);
+  }, [articles, fetchAllArticles]);
 
   useEffect(() => {
     if (!article) {

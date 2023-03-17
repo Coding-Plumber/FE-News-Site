@@ -1,5 +1,5 @@
 import { patchArticleVote } from "../../Api/Api";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import arrowDown from "../../Assets/arrow-down.svg";
 import arrowUp from "../../Assets/arrow-up.svg";
 import arrowDownOrange from "../../Assets/arrow-down-orange.svg";
@@ -12,7 +12,7 @@ const ArticleVotes = ({ article, articleId }) => {
 
   const patchVote = async (value) => {
     try {
-      const response = await patchArticleVote(articleId, value);
+      await patchArticleVote(articleId, value);
     } catch (error) {
       console.log(error);
       setVotes(votes + value);
@@ -58,6 +58,7 @@ const ArticleVotes = ({ article, articleId }) => {
       <p className="article-page-vote-counter">Votes: {votes}</p>
       <div className="arrow-voting-icons__container">
         <img
+        alt="arrow icon for upvoting"
           className="arrow-up-icon"
           src={hasUpVoted ? arrowUpOrange : arrowUp}
           data-value="1"
@@ -65,6 +66,7 @@ const ArticleVotes = ({ article, articleId }) => {
           value="up-vote"
         />
         <img
+        alt="arrow icon for down voting"
           className="arrow-down-icon"
           src={hasDownVoted ? arrowDownOrange : arrowDown}
           data-value="-1"

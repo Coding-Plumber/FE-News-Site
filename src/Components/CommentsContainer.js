@@ -19,7 +19,7 @@ const CommentsContainer = ({ id}) => {
   
     useEffect(() => {
       fetchComments();
-    }, [id]);
+    }, [id, fetchComments]);
   
     return (
       <div className="article-page__comments">

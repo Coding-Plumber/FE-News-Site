@@ -7,11 +7,13 @@
 
 .home-main__container {
     display: flex;
+    flex-direction: column;
     min-height: 100vh;
     width: auto;
     justify-content: center;
     align-items: center;
     margin-left: 2rem;
+
 
 }
   
@@ -25,5 +27,4 @@
     width: auto;
     margin-bottom: 3rem;
   }
-  
   

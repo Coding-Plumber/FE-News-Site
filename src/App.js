@@ -19,7 +19,7 @@ function App() {
         </div>
 
         <div className="content__container">
-          <Header />
+          <Header articles={articles}/>
           <Routes>
             <Route path="/" element={<Home articles={articles} setArticles={setArticles} />} />
             <Route path="/article/:id" element={<ArticlePage articles={articles} setArticles={setArticles}/>} />

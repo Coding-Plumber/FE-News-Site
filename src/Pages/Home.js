@@ -7,7 +7,6 @@ import React, { useEffect } from "react";
 import ArticleCard from "../Components/ArticleCard";
 import { getArticles } from "../Api/Api";
 
-
 const Home = ({ articles, setArticles }) => {
   useEffect(() => {
     const fetchArticles = async () => {
@@ -22,7 +21,7 @@ const Home = ({ articles, setArticles }) => {
     fetchArticles();
   }, [setArticles]);
 
-  console.log(articles, 'articles in Home')
+  console.log(articles, "articles in Home");
   if (articles.length === 0) {
     return <div>Loading...</div>;
   }
@@ -49,7 +48,5 @@ const Home = ({ articles, setArticles }) => {
     </div>
   );
 };
-
-
 
 export default Home;

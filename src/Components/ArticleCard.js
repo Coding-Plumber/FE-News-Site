@@ -11,9 +11,10 @@ const ArticleCard = ({ article, onClick }) => {
     >
       <div className="articlecard-image__container">
         <img
+        alt="topic of the card container"
           className="article-card-image"
           src={article.article_img_url}
-          alt="article image"
+
         />
       </div>
       <div className="articlecard-body__container">
