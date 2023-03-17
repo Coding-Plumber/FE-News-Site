@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getArticles } from "../Api/Api";
 
+
 const RandomArticles = ({ articles, randomFiveArticles }) => {
   const [articleList, setArticleList] = useState([]);
   const [loading, setLoading] = useState(true);
