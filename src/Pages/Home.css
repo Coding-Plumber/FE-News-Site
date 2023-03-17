@@ -1,14 +1,30 @@
+.content__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
 .home-main__container {
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
-  }
+    width: auto;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2rem;
 
 
-.home-articles__container {
+}
+  
+  .home-articles__container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
-    gap: 1rem;
-    background-color: blue;
+    gap: 2rem;
+    background-color: white;
+    padding: 2rem;
+    width: auto;
     margin-bottom: 3rem;
   }
   

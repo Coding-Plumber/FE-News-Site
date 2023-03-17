@@ -12,9 +12,11 @@
   align-items: center;
   height: 100%;
   position: fixed;
-
+  color: white;
+  font-family: 'NewsReader', sans-serif;
+  font-size: 1.2rem;
   right: auto;
-  background-color: lightgray;
+  background: linear-gradient(to bottom, #32363B, #4d4f54);
   width: 15%;
 }
 
@@ -28,7 +30,8 @@
   height: 5rem;
   width: 5rem;
   align-self: center;
-  text-align: center;
+
+
   background-color: antiquewhite;
   margin-top: 3rem;
 }

@@ -1,5 +1,7 @@
 import "./Comment.css";
 
+
+
 const Comment = ({ comment }) => {
 
   const date = comment.created_at.substring(0, 10);

@@ -1,33 +1,39 @@
 .header__container {
   display: flex;
   width: 100%;
-  height: 15vh;
-  border: 5px solid yellow;
-  background-color: lightseagreen;
+  height: 20vh;
+  position: relative;
+  background-image: url('../Assets/newspaper-image.png');
+  background-position: center;
 }
 
-.header-right-side__container {
+.header-sort-buttons__container {
   display: flex;
-  flex-direction: column;
-
-  flex-grow: 1;
-  width: auto;
-  height: 100%;
+  flex-direction: row;
+  justify-content: flex-end;
   margin-left: 3rem;
+  align-items: flex-end;
+}
+
+.header-sortby-btn {
+  border-radius: 5px;
+  height: 2rem;
+  margin-left: 2.5rem;
+  width: 5rem;
+  margin-bottom: 1rem;
+}
+
+.header-home-btn {
+  border-radius: 5px;
+  height: 2rem;
+  margin-left: 2.5rem;
+  width: 5rem;
+  margin-bottom: 1rem;
 }
 
 
 
 
-
-.header-search-bar__container {
-  height: 15%;
-  width: 60%;
-  background-color: #bada55;
-
-  border-radius: 10px;
-  margin-top: 1rem;
-}
 
 .header {
   background-color: #bada55;

@@ -1,16 +1,13 @@
 import "./Home.css";
 import "../Sidebar/Sidebar.css";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 import ArticleCard from "../Components/ArticleCard";
 import { getArticles } from "../Api/Api";
-import ArticlePage from "../Components/ArticlePage";
 
-const Home = () => {
-  const [articles, setArticles] = useState([]);
-  const navigate = useNavigate();
+const Home = ({ articles, setArticles }) => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
@@ -24,12 +21,15 @@ const Home = () => {
     fetchArticles();
   }, [setArticles]);
 
-
+  console.log(articles, "articles in Home");
+  if (articles.length === 0) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="home-main__container">
+      
       <div className="home-articles__container">
-        {console.log(articles)}
         {articles.map((article) => {
           return (
             <Link
@@ -40,7 +40,7 @@ const Home = () => {
               key={article.article_id}
               className="article-link"
             >
-              <ArticleCard key={article.article_id} articles={article} />
+              <ArticleCard key={article.article_id} article={article} />
             </Link>
           );
         })}

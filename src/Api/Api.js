@@ -1,11 +1,9 @@
 import axios from "axios";
 
 export const getArticles = async () => {
-  // console.log('before getting articles from server');
   const response = await axios.get(
     "https://nc-news-1z1d.onrender.com/api/articles"
   );
-  // console.log(response, '<--- response after server request');
 
   return response;
 };
@@ -27,10 +25,18 @@ export const getArticleCommentsById = async (articleId) => {
 };
 
 export const patchArticleVote = async (articleId, newVote) => {
+
   const response = await axios.patch(
     `https://nc-news-1z1d.onrender.com/api/articles/${articleId}`,
-    { vote: newVote }
+    { "inc_votes" : newVote }
   );
 
   return response;
 };
+
+// export const postArticleComment = async (articleId, username, body) => {
+//   const response = await axios.post(`https://nc-news-1z1d.onrender.com/api/articles/${articleId}/comments`,
+//   { "username": username, 
+// "body" : body }
+// );
+// }

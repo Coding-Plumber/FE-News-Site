@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.530f05f7.css",
+    "main.js": "/static/js/main.9c8e406d.js",
+    "static/media/newspaper-image.png": "/static/media/newspaper-image.4618c49b9d426d3dbe2c.png",
+    "static/media/Newsreader-Italic-VariableFont_opsz,wght.ttf": "/static/media/Newsreader-Italic-VariableFont_opsz,wght.ac2d70776da2eb432217.ttf",
+    "static/media/Newsreader-VariableFont_opsz,wght.ttf": "/static/media/Newsreader-VariableFont_opsz,wght.ba9030503b0d7e18ba3d.ttf",
+    "index.html": "/index.html",
+    "static/media/arrow-down-orange.svg": "/static/media/arrow-down-orange.f1ed7ca069b354ce1c7dd33f06b6c53a.svg",
+    "static/media/arrow-down.svg": "/static/media/arrow-down.13704197b14ad2b1e5c6ec4f9e45d393.svg",
+    "static/media/arrow-up-orange.svg": "/static/media/arrow-up-orange.859a6bd7392244d623fdbf42e14b5aca.svg",
+    "static/media/arrow-up.svg": "/static/media/arrow-up.30dc8eba3c964599994cb896cbc1bd20.svg",
+    "main.530f05f7.css.map": "/static/css/main.530f05f7.css.map",
+    "main.9c8e406d.js.map": "/static/js/main.9c8e406d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.530f05f7.css",
+    "static/js/main.9c8e406d.js"
+  ]
+}
