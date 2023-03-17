@@ -32,7 +32,7 @@
   grid-template-rows: auto ;
   width: 100%;
   height: auto;
-
+  background-color: white;
 
   overflow-y: auto;
   position: relative; 

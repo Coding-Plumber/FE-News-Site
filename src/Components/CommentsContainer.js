@@ -7,19 +7,19 @@ const CommentsContainer = ({ id}) => {
     const [articleComments, setArticleComments] = useState([]);
     const [loading, setLoading] = useState(true);
   
-    const fetchComments = async () => {
-      try {
-        const response = await getArticleCommentsById(id);
-        setArticleComments(response.data.articleComments);
-        setLoading(false);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-  
     useEffect(() => {
+      const fetchComments = async () => {
+        try {
+          const response = await getArticleCommentsById(id);
+          setArticleComments(response.data.articleComments);
+          setLoading(false);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    
       fetchComments();
-    }, [id, fetchComments]);
+    }, [id]);
   
     return (
       <div className="article-page__comments">
