@@ -2,23 +2,23 @@ import "./Home.css";
 import "../Sidebar/Sidebar.css";
 import { Link } from "react-router-dom";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
 import ArticleCard from "../Components/ArticleCard";
 import { getArticles } from "../Api/Api";
 
 
 const Home = ({ articles, setArticles }) => {
-  const fetchArticles = async () => {
-    try {
-      const response = await getArticles();
-      setArticles(response.data.articles);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const response = await getArticles();
+        setArticles(response.data.articles);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
     fetchArticles();
   }, [setArticles]);
 
@@ -29,6 +29,7 @@ const Home = ({ articles, setArticles }) => {
 
   return (
     <div className="home-main__container">
+      
       <div className="home-articles__container">
         {articles.map((article) => {
           return (

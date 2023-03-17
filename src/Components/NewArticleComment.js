@@ -1,6 +1,11 @@
 import "./NewArticleComment.css";
 import React, { useState } from "react";
 
+// File on pause, issue with my backend that i need to go through pathway isnt returning.
+
+
+
+
 const NewArticleComment = ({ onPostClick, id }) => {
   const [showCommentBox, setShowCommentBox] = useState(false);
   const [username, setUsername] = useState("");

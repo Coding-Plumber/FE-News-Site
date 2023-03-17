@@ -8,10 +8,11 @@
 .home-main__container {
     display: flex;
     min-height: 100vh;
-    width: 100%;
+    width: auto;
     justify-content: center;
     align-items: center;
     margin-left: 2rem;
+
 }
   
   .home-articles__container {

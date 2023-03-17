@@ -7,12 +7,15 @@ import { randomFiveArticles } from "../utilities/utils";
 import RandomArticles from "../CustomHooks/RandomArticles";
 import useFetchArticleData from "../CustomHooks/useFetchArticleData";
 import CommentsContainer from "./CommentsContainer";
-import NewArticleComment from "../Components/NewArticleComment";
+import NewArticleComment from '../Components/NewArticleComment';
 
 const ArticlePage = ({ articles, setArticles }) => {
   const { id } = useParams();
-  const { article } = useFetchArticleData(id, articles, setArticles);
-
+  const { article } = useFetchArticleData(
+    id,
+    articles,
+    setArticles
+  );
 
   if (!article) {
     return <div>Loading...</div>;
@@ -21,7 +24,7 @@ const ArticlePage = ({ articles, setArticles }) => {
   return (
     <div className="article-page-main__container">
       <div className="article-page-image__container">
-        <img src={article.article_img_url} alt="article image" />
+        <img src={article.article_img_url} alt="topic description" />
 
         <RandomArticles
           articles={articles}
@@ -37,13 +40,9 @@ const ArticlePage = ({ articles, setArticles }) => {
           <p className="article-page-body__text">{article.body}</p>
         </div>
 
-        <div className="article-page-actions__container">
-          <ArticleVotes article={article} articleId={id} />
-          <NewArticleComment id={id}/>
-        </div>
-
+        <ArticleVotes article={article} articleId={id} />
+        <NewArticleComment />
         <CommentsContainer id={id} />
-
       </div>
     </div>
   );

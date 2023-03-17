@@ -10,14 +10,14 @@
 .header-sort-buttons__container {
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
   margin-left: 3rem;
 
 }
 
-.header-sortBy-btn {
-  width: 10rem;
-  border-radius: 20px;
+.header-home-btn {
+  width: 7rem;
+  border-radius: 4px;
   margin-bottom: 1rem;
   text-align: center;
 }
