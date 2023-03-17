@@ -32,7 +32,7 @@
     height: 85%;
     padding: 0.5rem;
     border-radius: 20px;
-    margin-bottom: 10rem;
+
     resize: none;
     overflow: auto;
   }
@@ -44,6 +44,7 @@
 .username-content__input {
     width: 30%;
     height: 100%;
+    gap: 5rem;
 
 }
 
