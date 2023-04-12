@@ -10,14 +10,14 @@ const Header = ({ articles }) => {
         <Link to="/">
           <button className="header-home-btn">Home</button>
         </Link>
-        <select className="header-sortby-btn" defaultValue="">
+        {/* <select className="header-sortby-btn" defaultValue="">
           <option value="" disabled hidden>
             Sort By
           </option>
           <option value="option1">Option 1</option>
           <option value="option2">Option 2</option>
           <option value="option3">Option 3</option>
-        </select>
+        </select> */}
       </div>
     </div>
   );
